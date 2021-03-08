@@ -46,6 +46,7 @@
                     force_save="1"
                     context="{'partner_id':order_partner_id, 'quantity':product_uom_qty, 'pricelist':pricelist_id, 'uom':product_uom, 'company_id': company_id}"
                 />
+                <field name="product_uom_category_id" invisible="1" />
                 <field
                     name="name"
                     attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}"
@@ -93,7 +94,7 @@
                 <field
                     name="discount"
                     attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}"
-                    groups="sale.group_discount_per_so_line"
+                    groups="product.group_discount_per_so_line"
                 />
                 <field
                     name="price_subtotal"
@@ -164,7 +165,6 @@
         <field name="name">Sales Orders Lines</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">sale.order.line</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form,pivot,graph</field>
         <field name="view_id" ref="view_sales_order_line_input_tree" />
     </record>
